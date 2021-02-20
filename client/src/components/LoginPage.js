@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../config.js";
 import "./LoginPage.css";
 
@@ -39,6 +39,10 @@ export default function LoginPage() {
       <br />
       <input className="login-input" placeholder="Password" type="password" onChange={handlePassword} />
       <br />
+      <div className="login-bottom-info">
+              Don't have an account?{" "}
+              <Link style={{textDecoration: 'none', color: '#ffffff'}} to="signup">Sign up</Link>
+            </div>      
       <button className="login-button-submit" onClick={handleLogin}>
         Login
       </button>

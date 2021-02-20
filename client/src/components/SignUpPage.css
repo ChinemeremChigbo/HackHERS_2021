@@ -11,7 +11,7 @@ body {
     transition: 0.3s; 
     border-radius: 5px;
     background-color: #cccbe4;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .sign-up-page-div {
   background-image: url("../assets/img/Sign_Up.svg");
@@ -34,12 +34,12 @@ body {
         position: fixed;
         top: 50%;
         left: 50%;
-        margin-top: -410px;
+        margin-top: -375px;
         margin-left: -400px;
 }
 
 .sign-up-input{
-    width: 85%;
+    width: 75%;
     min-height: 35px;
     border-radius:5px;
     margin-top: 22px;
@@ -57,7 +57,7 @@ body {
     width: 40%;
     padding: 12px;
     min-height: 50px;
-    margin-top: 40px;
+    margin-top: 50px;
     outline: 0;
     border: none;
     background-color: #111B47;
@@ -79,4 +79,9 @@ body {
     margin-left: 13px;
 
     
+}
+.sign-up-bottom-info{
+    padding: 10px;
+    color: #111B47;
+    font-weight: bold;
 }
