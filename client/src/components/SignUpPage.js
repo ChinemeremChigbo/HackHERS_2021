@@ -30,21 +30,23 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="page-div">
-      <div className="login-page">
+    <div className="sign-up-page-div">
+      <div className="sign-up-page">
+      <div class="card">
       <p className = "sign-up-text"> SIGN UP</p>
       <br />
-      <input className="input" placeholder="First Name" type="text" />
+      <input className="sign-up-input" placeholder="First Name" type="text" />
       <br />
-      <input className="input" placeholder="Last Name" type="text" />
+      <input className="sign-up-input" placeholder="Last Name" type="text" />
       <br />
-      <input className="input" placeholder="Email" type="text" onChange={handleEmail} />
+      <input className="sign-up-input" placeholder="Email" type="text" onChange={handleEmail} />
       <br />
-      <input className="input" placeholder="Password" type="password" onChange={handlePassword} />
+      <input className="sign-up-input" placeholder="Password" type="password" onChange={handlePassword} />
       <br />
-      <button className="button-submit" onClick={handleRegistration}>
+      <button className="sign-up-button-submit" onClick={handleRegistration}>
         Submit
       </button>
+      </div>
       </div>
     </div>
   );

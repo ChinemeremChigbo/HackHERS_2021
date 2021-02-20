@@ -4,17 +4,19 @@ body {
   padding: 0;
 
 }
-.card{
+
+.login-card{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 800px;
-    height: 700px;
+    height: 550px;
     transition: 0.3s; 
     border-radius: 5px;
     background-color: #cccbe4;
     padding-top: 50px;
 }
-.sign-up-page-div {
-  background-image: url("../assets/img/Sign_Up.svg");
+
+.login-page-div {
+  background-image: url("../assets/img/Login.svg");
   min-height: 100%;
   min-width: 100%;
   width: auto;
@@ -30,15 +32,15 @@ body {
   background-size: cover;
 }
 
-.sign-up-page{
+.login-page{
         position: fixed;
         top: 50%;
         left: 50%;
-        margin-top: -410px;
+        margin-top: -300px;
         margin-left: -400px;
 }
 
-.sign-up-input{
+.login-input{
     width: 85%;
     min-height: 35px;
     border-radius:5px;
@@ -53,7 +55,7 @@ body {
 ::placeholder{
     color: rgb(235, 235, 235);
 }
-.sign-up-button-submit{
+.login-button-submit{
     width: 40%;
     padding: 12px;
     min-height: 50px;
@@ -66,17 +68,16 @@ body {
     font-size: 17px; 
 }
 
-.sign-up-button-submit:hover {
-    background-color: #6472a9;
+.login-button-submit:hover {
+    background-color: #D6DCF5;
     cursor: pointer;
   }
 
-.sign-up-text{
+.login-text{
     color: #111B47;
     font-size: 50px;  
     font-weight: 700;
     margin-bottom: 15px;
-    margin-left: 13px;
-
+    margin-left: -30px;
     
 }
