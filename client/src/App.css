@@ -38,7 +38,7 @@
 }
 
 
-/* .leaflet-container {
+.leaflet-container {
   overflow: hidden;
-  height: 400px;
-  } */
+  height: 100vh;
+  }
