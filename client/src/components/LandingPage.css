@@ -1,0 +1,70 @@
+.landingpage-container {
+    background-image: url("../assets/img/sign-up.svg");
+    height:100vh;
+}
+
+.landingpage-main-heading {
+    font-size: 50px;
+    font-weight: 700;
+    color: #111B47;
+    text-align: left;
+    line-height: 66px;
+}
+
+.landingpage-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #393E41;
+    text-align: left;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.landingpage-content {
+    display:block;
+    width: 540px;
+    margin-left: 100px;
+    padding-top: 300px;
+}
+
+.landingpage-buttons {
+    display:flex;
+}
+
+
+.our-mission-container {
+    height:100vh;
+    display:flex;
+    width: 540px;
+}
+
+.our-mission-content {
+    display:block;
+}
+
+.our-mission-heading {
+
+}
+
+.our-mission-text {
+
+}
+
+.our-mission-img {
+
+}
+
+.our-mission-icons {
+
+}
+
+.our-mission-sub-heading {
+
+}
+
+.our-mission-sub-text {
+
+}
+
+
+
