@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import firebase from "../config.js";
+import "./SignUpPage.css";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -29,20 +30,22 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="signup-page">
-      <p>Sign Up Page</p>
+    <div className="page-div">
+      <div className="login-page">
+      <p className = "sign-up-text"> SIGN UP</p>
       <br />
-      <input placeholder="First Name" type="text" />
+      <input className="input" placeholder="First Name" type="text" />
       <br />
-      <input placeholder="Last Name" type="text" />
+      <input className="input" placeholder="Last Name" type="text" />
       <br />
-      <input placeholder="Email" type="text" onChange={handleEmail} />
+      <input className="input" placeholder="Email" type="text" onChange={handleEmail} />
       <br />
-      <input placeholder="Password" type="password" onChange={handlePassword} />
+      <input className="input" placeholder="Password" type="password" onChange={handlePassword} />
       <br />
       <button className="button-submit" onClick={handleRegistration}>
         Submit
       </button>
+      </div>
     </div>
   );
 }
