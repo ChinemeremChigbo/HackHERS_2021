@@ -1,6 +1,11 @@
 .landingpage-container {
     background-image: url("../assets/img/sign-up.svg");
     height:100vh;
+    width: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top  right -200px;
+
 }
 
 .landingpage-main-heading {
@@ -37,6 +42,7 @@
     display:flex;
     background-image: url("../assets/img/our-mission.svg");
     width: 100vw;
+    justify-content: space-between;
 }
 
 .our-mission-content {
@@ -109,7 +115,7 @@
 
 .your-thoughts-input {
     color: #091133;
-    width:900px;
+    width:80%;
     height:50px;
     border:0;
     margin-bottom:40px;
@@ -127,7 +133,7 @@ textarea:focus, input:focus{
 
 .your-thoughts-textarea {
     color: #091133;
-    width:900px;
+    width:80%;
     height:230px;
     border:0;
     margin-bottom:30px;
