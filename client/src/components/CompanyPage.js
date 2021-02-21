@@ -36,7 +36,7 @@ export default function CompanyPage(props) {
               <div>
                 <Rating
                   style={{
-                    marginTop: 10,
+                    marginBottom: 35,
                     color: "#393E41",
                     textAlign: "left",
                     fontSize: "30px",
