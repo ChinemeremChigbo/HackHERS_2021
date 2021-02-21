@@ -25,10 +25,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MapPage = (props) => {
   const position = [43.468, -80.5373];
-  const bounds = [
-    [43.468, 0],
-    [0, -80.5373],
-  ];
   const classes = useStyles();
   const [clickPos, setClickPos] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
@@ -47,11 +43,9 @@ const MapPage = (props) => {
                 <Marker
                   position={element.position}
                   key={element.position[0]}
-                  eventHandlers={{
-                    click: () => {
-                      setOpenStory(true);
-                      setSelectedData(element.body);
-                    },
+                  onClick={() => {
+                    setOpenStory(true);
+                    setSelectedData(element.body);
                   }}
                 ></Marker>
               );
