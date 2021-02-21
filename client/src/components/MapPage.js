@@ -73,7 +73,6 @@ const MapPage = (props) => {
     } else {
       setClickPos({ lat: e.latlng.lat, lng: e.latlng.lng });
     }
-    // ClickMarker(e);
   };
   const ClickMarker = () => {
     if (clickPos) {
