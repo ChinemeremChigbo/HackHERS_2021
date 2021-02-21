@@ -37,12 +37,22 @@
   }
 }
 
-
 .leaflet-container {
   overflow: hidden;
   height: 100vh;
-  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+  
   
   body {
     font-family: 'Roboto', sans-serif;
   }
+
