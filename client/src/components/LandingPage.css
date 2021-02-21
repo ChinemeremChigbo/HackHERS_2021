@@ -55,7 +55,7 @@ body {
   display: flex;
   background-image: url("../assets/img/our-mission.svg");
   width: 100vw;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .our-mission-content {
