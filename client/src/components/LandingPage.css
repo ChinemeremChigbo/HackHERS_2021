@@ -1,3 +1,10 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .landingpage-container {
     background-image: url("../assets/img/sign-up.svg");
     height:100vh;
