@@ -109,7 +109,7 @@ const LandingPage = () => {
 
             <div className="our-mission-blurb">
               <img src={ceiling} />
-              <div className="our-mission-subheading">Glassceiling</div>
+              <div className="our-mission-subheading">Glass Ceiling</div>
               <div>
                 Service to evaluate companies based on diversity and inclusivity
               </div>
