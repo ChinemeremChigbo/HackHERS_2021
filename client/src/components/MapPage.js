@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 // import { useHistory } from "react-router-dom";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMapEvents,
-} from "react-leaflet";
+import { Map, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import firebase from "../config.js";
 import { Fab, makeStyles, Slide } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import HeatmapLayer from "react-leaflet-heatmap-layer";
 import CreateInjusticeDialog from "./mapComponents/CreateInjusticeDialog";
 import DisplayInjustice from "./mapComponents/DisplayInjustice";
 const useStyles = makeStyles((theme) => ({
@@ -30,12 +25,17 @@ const useStyles = makeStyles((theme) => ({
 
 const MapPage = (props) => {
   const position = [43.468, -80.5373];
+  const bounds = [
+    [43.468, 0],
+    [0, -80.5373],
+  ];
   const classes = useStyles();
   const [clickPos, setClickPos] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [storyMarkers, setStoryMarkers] = useState([]);
   const [selectedData, setSelectedData] = useState("");
   const [openStory, setOpenStory] = useState(false);
+  const [dataPoints, setDataPoints] = useState([]);
   const database = firebase.database().ref("/stories/");
   useEffect(() => {
     if (!openDialog) {
@@ -57,6 +57,12 @@ const MapPage = (props) => {
               );
             })
           );
+          Object.values(snapshot.val()).map((element) => {
+            setDataPoints((prev) => [
+              ...prev,
+              { coordinate: [element.position[0], element.position[1]] },
+            ]);
+          });
         }
       });
     } //eslint-disable-next-line
@@ -66,15 +72,11 @@ const MapPage = (props) => {
     setOpenDialog(true);
   };
   const ClickMarker = () => {
-    useMapEvents({
-      click: (e) => {
-        if (clickPos) {
-          setClickPos(null);
-        } else {
-          setClickPos({ lat: e.latlng.lat, lng: e.latlng.lng });
-        }
-      },
-    });
+    if (clickPos) {
+      setClickPos(null);
+    } else {
+      //setClickPos({ lat: e.latlng.lat, lng: e.latlng.lng });
+    }
     if (clickPos) {
       return <Marker position={clickPos}></Marker>;
     } else {
@@ -83,14 +85,20 @@ const MapPage = (props) => {
   };
   return (
     <React.Fragment>
-      <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
+      <Map center={position} zoom={13} scrollWheelZoom={true}>
+        <HeatmapLayer
+          points={dataPoints}
+          longitudeExtractor={(m) => m.coordinate[1]}
+          latitudeExtractor={(m) => m.coordinate[0]}
+          intensityExtractor={(m) => 100}
+        />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ClickMarker />
         {storyMarkers}
-      </MapContainer>
+      </Map>
       <Slide
         direction="left"
         in={clickPos ? true : false}
