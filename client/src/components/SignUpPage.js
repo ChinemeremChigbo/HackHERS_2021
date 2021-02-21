@@ -45,7 +45,7 @@ export default function SignUpPage() {
       <br />
       <div className="sign-up-bottom-info">
               Already have an account?{" "}
-              <Link style={{textDecoration: 'none', color: '#701000'}} to="/login">Log in</Link>
+              <Link style={{textDecoration: 'none', color: '#ffffff'}} to="/login">Log in</Link>
             </div>
       <button className="sign-up-button-submit" onClick={handleRegistration}>
         Submit

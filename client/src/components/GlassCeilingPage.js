@@ -93,7 +93,7 @@ export default function GlassCeilingPage() {
       <div className="glass-ceiling-card">
         <p className="glass-ceiling-text">Glass Ceiling</p>
         <br />
-        <p className="glass-ceiling-sub-text">Select a company</p>
+
         <br />
         <Autocomplete
           className="glass-ceiling-input"
@@ -109,6 +109,7 @@ export default function GlassCeilingPage() {
           style={{ width: 300 }}
           renderInput={(params) => (
             <TextField
+              className = "glass-ceiling-company-selector"
               {...params}
               label="Select a company"
               variant="outlined"
