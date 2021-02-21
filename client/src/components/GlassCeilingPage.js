@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import firebase from "../config.js";
 import CompanyPage from "./CompanyPage";
+import "./GlassCeilingPage.css";
 
 export default function GlassCeilingPage() {
   const [review, setReview] = useState("");
@@ -74,21 +75,26 @@ export default function GlassCeilingPage() {
   };
 
   return (
-    <div>
-      <p>Glass Ceiling Page</p>
+    <div className = "glass-ceiling-page-div">
+    <div className="glass-ceiling-page">
+    <div class="glass-ceiling-card">
+      <p className = "glass-ceiling-text">Glass Ceiling</p>
       <br />
-      <p>Select a company</p>
+      <p className = "glass-ceiling-sub-text" >Select a company</p>
       <br />
       <input
+        className = "glass-ceiling-input"
         placeholder="Company"
         value={company}
         type="text"
         onChange={handleCompany}
       />
-      <button onClick={handleCompanySelection}>Submit</button>
+      <button className="glass-ceiling-button-submit" onClick={handleCompanySelection}>Submit</button>
       <br />
       {isCompany ? <CompanyPage company={company.toLowerCase()} /> : null}
       {isCompany ? postView() : null}
+    </div>
+    </div>
     </div>
   );
 }
