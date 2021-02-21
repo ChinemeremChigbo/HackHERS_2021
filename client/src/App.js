@@ -20,7 +20,7 @@ function App() {
           <Route path="/signup" component={SignUpPage} />
           <Route path="/map" component={MapPage} />
           <Route path="/glassceiling" component={GlassCeilingPage} />
-          <Route path="/cool" component={Cool} />
+          {/*<Route path="/cool" component={Cool} />*/}
         </Switch>
       </div>
     </Router>

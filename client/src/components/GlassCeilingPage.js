@@ -12,9 +12,20 @@ export default function GlassCeilingPage() {
   const [company, setCompany] = useState("");
   const [isCompany, setIsCompany] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  });
 
   const handleReview = (event) => {
-    setReview(event.target.value);
+    if (loggedIn) {
+      setReview(event.target.value);
+    }
   };
 
   const handlePost = () => {
@@ -42,7 +53,9 @@ export default function GlassCeilingPage() {
   };
 
   const handleRating = (event) => {
-    setRating(event.target.value);
+    if (loggedIn) {
+      setRating(event.target.value);
+    }
   };
 
   const handleCompanySelection = () => {
