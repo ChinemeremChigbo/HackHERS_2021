@@ -56,6 +56,8 @@ const LandingPage = () => {
     history.push("/signup");
   };
 
+
+export default function LandingPage() {
   return (
     <div>
       <div className="landingpage-container" id="home">
