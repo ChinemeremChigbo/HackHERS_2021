@@ -1,6 +1,9 @@
 .landingpage-container {
     background-image: url("../assets/img/sign-up.svg");
-    height:100vh;
+    background-repeat: no-repeat;
+    background-position: right -50px top 10px;
+    background-size: contain
+    
 }
 
 .landingpage-main-heading {
@@ -24,7 +27,7 @@
     display:block;
     width: 540px;
     margin-left: 100px;
-    padding-top: 300px;
+    padding-top: 2500px;
 }
 
 .landingpage-buttons {
@@ -36,7 +39,10 @@
     height:100vh;
     display:flex;
     background-image: url("../assets/img/our-mission.svg");
-    width: 100vw;
+    background-position: right -50px top;
+    justify-content: space-between
+
+
 }
 
 .our-mission-content {
@@ -138,6 +144,7 @@ textarea:focus, input:focus{
     padding:2px;
     border-radius: 10px;
     text-align: center;
+
 }
 
 .footer {
@@ -174,3 +181,10 @@ textarea:focus, input:focus{
     text-align: left;
     margin-left: 100px;
 }
+
+
+
+
+
+
+
