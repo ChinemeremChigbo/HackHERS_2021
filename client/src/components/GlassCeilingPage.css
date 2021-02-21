@@ -9,23 +9,16 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 800px;
     height: 450px;
-    transition: 0.3s; 
     border-radius: 5px;
     background-color: #cccbe4;
-    padding-top: 50px;
+    margin:0 auto;
 }
 
 .glass-ceiling-page-div {
   background-image: url("../assets/img/Login.svg");
-  min-height: 100%;
-  min-width: 100%;
-  width: auto;
-  height: 100vh;
+  height: 1500px;
   background-repeat: no-repeat;
   background-position: center center;
-  position: fixed;
-  top: 0;
-  left: 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -33,11 +26,10 @@ body {
 }
 
 .glass-ceiling-page{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-top: -215px;
-        margin-left: -400px;
+height:100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
 .glass-ceiling-input{
@@ -133,6 +125,10 @@ body {
 
 
 
+  .glassceiling-reviews {
+      margin-top: 70px;
+        padding-top:200px;
+  }
 
 
 

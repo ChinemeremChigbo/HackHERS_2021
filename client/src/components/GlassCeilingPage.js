@@ -69,12 +69,11 @@ export default function GlassCeilingPage() {
       <div style={{
         boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
         width: "800px",
-        height: "7700px",
-        transition: "0.3s",
+        height: "1000px",
         borderRadius: "5px",
         backgroundColor: "#cccbe4",
-        paddingTop: "50px",
-        marginTop: "-1030px",
+        margin: "0 auto",
+        marginTop:50,
       }}>
       <div>
         <p className = "glass-ceiling-header"> Post a review</p>
@@ -135,6 +134,8 @@ export default function GlassCeilingPage() {
           Submit
         </button>
       </div>
+
+
     );
   };
 

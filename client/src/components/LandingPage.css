@@ -16,7 +16,7 @@ body {
 .landingpage-container {
     background-image: url("../assets/img/sign-up.svg");
     height:100vh;
-    width: auto;
+    /* width: auto; */
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top  right -200px;
