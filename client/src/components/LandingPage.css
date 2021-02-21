@@ -1,9 +1,11 @@
 .landingpage-container {
     background-image: url("../assets/img/sign-up.svg");
+    height:100vh;
+    width: auto;
     background-repeat: no-repeat;
-    background-position: right -50px top 10px;
-    background-size: contain
-    
+    background-size: contain;
+    background-position: top  right -200px;
+
 }
 
 .landingpage-main-heading {
@@ -27,7 +29,7 @@
     display:block;
     width: 540px;
     margin-left: 100px;
-    padding-top: 2500px;
+    padding-top: 250px;
 }
 
 .landingpage-buttons {
@@ -39,10 +41,8 @@
     height:100vh;
     display:flex;
     background-image: url("../assets/img/our-mission.svg");
-    background-position: right -50px top;
-    justify-content: space-between
-
-
+    width: 100vw;
+    justify-content: space-between;
 }
 
 .our-mission-content {
@@ -115,7 +115,7 @@
 
 .your-thoughts-input {
     color: #091133;
-    width:900px;
+    width:80%;
     height:50px;
     border:0;
     margin-bottom:40px;
@@ -133,7 +133,7 @@ textarea:focus, input:focus{
 
 .your-thoughts-textarea {
     color: #091133;
-    width:900px;
+    width:80%;
     height:230px;
     border:0;
     margin-bottom:30px;
@@ -144,7 +144,6 @@ textarea:focus, input:focus{
     padding:2px;
     border-radius: 10px;
     text-align: center;
-
 }
 
 .footer {
@@ -181,10 +180,3 @@ textarea:focus, input:focus{
     text-align: left;
     margin-left: 100px;
 }
-
-
-
-
-
-
-
