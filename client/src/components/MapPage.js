@@ -43,11 +43,9 @@ const MapPage = (props) => {
                 <Marker
                   position={element.position}
                   key={element.position[0]}
-                  eventHandlers={{
-                    click: () => {
-                      setOpenStory(true);
-                      setSelectedData(element.body);
-                    },
+                  onClick={() => {
+                    setOpenStory(true);
+                    setSelectedData(element.body);
                   }}
                 ></Marker>
               );
