@@ -36,7 +36,7 @@ body {
         position: fixed;
         top: 50%;
         left: 50%;
-        margin-top: -300px;
+        margin-top: -265px;
         margin-left: -400px;
 }
 
@@ -77,17 +77,14 @@ body {
     color: #111B47;
     font-size: 50px;  
     font-weight: 700;
-    margin-bottom: 15px;
-    margin-left: -30px;
-    
+    margin-bottom: 15px;    
 }
-.glass-ceiling-sub-text{
+
+.glass-ceiling-company-selector{
     color: #111B47;
     font-size: 20px;  
     font-weight: 700;
-    margin-bottom: 15px;
-    margin-left: -30px;
-    
+    margin-left: 80%;
 }
 .glass-ceiling-bottom-info{
     padding: 10px;
