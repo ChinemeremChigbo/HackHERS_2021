@@ -66,10 +66,12 @@ export default function GlassCeilingPage() {
 
   const postView = () => {
     return (
+      <div className="glass-ceiling-card2">
       <div>
         <p>Post a review</p>
         <br />
         <input
+          className = "glass-ceiling-input"
           placeholder="Post a review"
           value={review}
           type="text"
@@ -77,13 +79,15 @@ export default function GlassCeilingPage() {
         />
         <br />
         <input
+          className = "glass-ceiling-input"
           placeholder="Rating"
           value={rating}
           type="number"
           onChange={handleRating}
         />
         <br />
-        <button onClick={handlePost}>Post</button>
+        <button className = "glass-ceiling-button-post" onClick={handlePost}>Post</button>
+      </div>
       </div>
     );
   };
@@ -96,7 +100,7 @@ export default function GlassCeilingPage() {
 
         <br />
         <Autocomplete
-          className="glass-ceiling-input"
+                        className = "glass-ceiling-company-selector"
           inputValue={inputValue}
           onChange={(event, newValue) => {
             setCompany(newValue);
@@ -109,7 +113,6 @@ export default function GlassCeilingPage() {
           style={{ width: 300 }}
           renderInput={(params) => (
             <TextField
-              className = "glass-ceiling-company-selector"
               {...params}
               label="Select a company"
               variant="outlined"

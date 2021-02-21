@@ -11,7 +11,7 @@ body {
     transition: 0.3s; 
     border-radius: 5px;
     background-color: #cccbe4;
-    padding-top: 1px;
+    padding-top: 10px;
 }
 .sign-up-page-div {
   background-image: url("../assets/img/Sign_Up.svg");
@@ -67,7 +67,8 @@ body {
 }
 
 .sign-up-button-submit:hover {
-    background-color: #6472a9;
+    background-color: #D6DCF5;
+    color: #111B47;
     cursor: pointer;
   }
 

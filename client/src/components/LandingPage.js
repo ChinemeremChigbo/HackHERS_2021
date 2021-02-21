@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     width: 190,
     fontSize: 16,
     fontWeight: "600",
-    marginTop: 40,
     "&:hover": {
       backgroundColor: "#D6DCF5",
       color: "#111B47",
@@ -125,6 +124,7 @@ const LandingPage = () => {
       </div>
 
       <div className="your-thoughts-container" id="contact">
+        <br></br>
         <div className="your-thoughts-heading">Tell Us Your Thoughts</div>
         <form>
           <input
