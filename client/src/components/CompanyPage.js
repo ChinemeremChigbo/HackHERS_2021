@@ -31,10 +31,5 @@ export default function CompanyPage(props) {
     );
   };
 
-  return (
-    <div>
-      <div>{props.company}</div>
-      {showReviews()}
-    </div>
-  );
+  return <div>{showReviews()}</div>;
 }
