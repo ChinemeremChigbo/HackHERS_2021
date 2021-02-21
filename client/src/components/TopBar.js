@@ -1,4 +1,6 @@
 import React from "react";
+import logo from "../assets/img/logo.svg";
+
 import {
   makeStyles,
   AppBar,
@@ -29,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     paddingLeft: 20,
   },
+  logo: {
+    fontWeight: 700,
+    color: "white",
+    textDecoration: "none",
+    paddingLeft: 20,
+    marginTop:3,
+  }
 }));
 const TopBar = (props) => {
   const classes = useStyles();
@@ -36,8 +45,8 @@ const TopBar = (props) => {
     <AppBar position="static" color="primary" style={{ elevation: 1000 }}>
       <Toolbar className={classes.root}>
         <div className={classes.root}>
-          <NavLink to="/" className={classes.navlink}>
-            <Typography variant="h5">Amplify</Typography>
+          <NavLink to="/" className={classes.logo}>
+            <img src={logo}/>
           </NavLink>
         </div>
         <div className={classes.middle}>
