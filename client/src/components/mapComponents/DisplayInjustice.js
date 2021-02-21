@@ -6,34 +6,11 @@ import {
   DialogContentText,
   DialogTitle,
   Button,
-  makeStyles,
-  Paper,
-  useMediaQuery,
 } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    zIndex: 999,
-    width: 100,
-  },
-}));
 
 const CreateInjusticeDialog = (props) => {
   const { open, handleClose, body } = props;
-  const theme = useTheme();
-  const bigScreen = useMediaQuery(theme.breakpoints.up("sm"));
-  const classes = useStyles();
 
-  useEffect(() => {
-    console.log(bigScreen);
-  });
   return (
     <React.Fragment>
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>

@@ -7,11 +7,13 @@ import LoginPage from "./components/LoginPage";
 import MapPage from "./components/MapPage";
 import GlassCeilingPage from "./components/GlassCeilingPage";
 import Cool from "./components/cool";
+import TopBar from "./components/TopBar";
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <TopBar />
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
