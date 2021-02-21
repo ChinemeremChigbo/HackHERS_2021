@@ -42,3 +42,7 @@
   overflow: hidden;
   height: 100vh;
   }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
