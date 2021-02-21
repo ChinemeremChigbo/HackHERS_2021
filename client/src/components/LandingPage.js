@@ -62,13 +62,17 @@ const LandingPage = () => {
             Giving a voice to the voiceless
           </div>
           <div className="landingpage-text">
-            While society condones blatant discrimination, it is a lot more
+            While our society condones blatant discrimination, it is a lot more
             complacent in dealing with microaggressions if not being outright
-            dismissive about it. From remarks like "you run like a girl" to
-            jokes like "get some rest and go do what girls do - gossip," we
-            often find ourselves having to put up with this unacceptable
-            behaviour. With amplify, we want to create a platform for people to
-            share their stories and feel validated.
+            dismissive about it. From remarks like "you run like a girl" to "get
+            some rest and go do what girls do - gossip," we often find ourselves
+            having to put up with this unacceptable behaviour. With amplify, we
+            want to create a platform for people to share their stories and feel
+            validated via the community.
+            <br />
+            <br />
+            Read about other women’s stories or join our community now to share
+            your stories!
           </div>
           <div className="landingpage-buttons">
             <Button
@@ -101,17 +105,18 @@ const LandingPage = () => {
             <div className="our-mission-blurb">
               <img src={map} />
               <div className="our-mission-subheading">Maps</div>
-              <div>
-                Share harassment stories anonymously and identify harassment
-                hotspots
+              <div className="our-mission-subtext">
+                Share stories anonymously. From sexist encounters to
+                microaggressions to workplace harassment, identify these
+                hotspots and recognize that others have similar experiences.
               </div>
             </div>
 
             <div className="our-mission-blurb">
               <img src={ceiling} />
               <div className="our-mission-subheading">Glass Ceiling</div>
-              <div>
-                Service to evaluate companies based on diversity and inclusivity
+              <div className="our-mission-subtext">
+                Tired of Glassdoors? Come checkout Glass Ceiling, where women share their experiences working at different companies and rate them based on their encounters
               </div>
             </div>
           </div>
