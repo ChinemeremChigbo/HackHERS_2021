@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import Data from "../fortune500.json";
 import firebase from "../config.js";
 import CompanyPage from "./CompanyPage";
 import "./GlassCeilingPage.css";
@@ -75,26 +77,38 @@ export default function GlassCeilingPage() {
   };
 
   return (
-    <div className = "glass-ceiling-page-div">
-    <div className="glass-ceiling-page">
-    <div class="glass-ceiling-card">
-      <p className = "glass-ceiling-text">Glass Ceiling</p>
-      <br />
-      <p className = "glass-ceiling-sub-text" >Select a company</p>
-      <br />
-      <input
-        className = "glass-ceiling-input"
-        placeholder="Company"
-        value={company}
-        type="text"
-        onChange={handleCompany}
-      />
-      <button className="glass-ceiling-button-submit" onClick={handleCompanySelection}>Submit</button>
-      <br />
-      {isCompany ? <CompanyPage company={company.toLowerCase()} /> : null}
-      {isCompany ? postView() : null}
-    </div>
-    </div>
+    <div className="glass-ceiling-page-div">
+      <div className="glass-ceiling-page">
+        <div class="glass-ceiling-card">
+          <p className="glass-ceiling-text">Glass Ceiling</p>
+          <br />
+          <p className="glass-ceiling-sub-text">Select a company</p>
+          <br />
+          <Autocomplete
+            className="glass-ceiling-input"
+            onChange={handleCompany}
+            value={company}
+            options={Data}
+            style={{ width: 300 }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Select a company"
+                variant="outlined"
+              />
+            )}
+          />
+          <button
+            className="glass-ceiling-button-submit"
+            onClick={handleCompanySelection}
+          >
+            Submit
+          </button>
+          <br />
+          {isCompany ? <CompanyPage company={company.toLowerCase()} /> : null}
+          {isCompany ? postView() : null}
+        </div>
+      </div>
     </div>
   );
 }

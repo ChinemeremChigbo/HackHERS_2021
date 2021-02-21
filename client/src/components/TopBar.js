@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/img/logo.svg";
-
+import firebase from "../config";
 import {
   makeStyles,
   AppBar,
@@ -39,10 +39,36 @@ const useStyles = makeStyles((theme) => ({
     marginTop:3,
   }
 }));
+const handleLogout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+};
 const TopBar = (props) => {
+  const [loggedIn, setLoggedIn] = useState(false);
   const classes = useStyles();
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setLoggedIn(true);
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+      // ...
+    } else {
+      setLoggedIn(false);
+      console.log("not loggin in");
+      // User is signed out
+      // ...
+    }
+  });
   return (
-    <AppBar position="static" color="primary" style={{ elevation: 1000 }}>
+    <AppBar position="fixed" color="primary" style={{ elevation: 1000 }}>
       <Toolbar className={classes.root}>
         <div className={classes.root}>
           <NavLink to="/" className={classes.logo}>
@@ -57,14 +83,22 @@ const TopBar = (props) => {
             <Typography variant="body1">Glass Ceiling</Typography>
           </NavLink>
         </div>
-        <div className={classes.root}>
-          <NavLink to="/login" className={classes.navlink}>
-            <Typography variant="body1">Login</Typography>
-          </NavLink>
-          <NavLink to="/signup" className={classes.navlink}>
-            <Typography variant="body1">Sign Up</Typography>
-          </NavLink>
-        </div>
+        {loggedIn ? (
+          <div className={classes.root}>
+            <Button color="inherit" onClick={handleLogout}>
+              Log Out
+            </Button>
+          </div>
+        ) : (
+          <div className={classes.root}>
+            <NavLink to="/login" className={classes.navlink}>
+              <Typography variant="body1">Login</Typography>
+            </NavLink>
+            <NavLink to="/signup" className={classes.navlink}>
+              <Typography variant="body1">Sign Up</Typography>
+            </NavLink>
+          </div>
+        )}
       </Toolbar>
     </AppBar>
   );
