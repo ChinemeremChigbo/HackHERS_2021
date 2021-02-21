@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     right: "0%",
     zIndex: 999,
   },
+  map: {
+    marginTop: 60,
+  },
 }));
 
 const MapPage = (props) => {
@@ -32,6 +35,18 @@ const MapPage = (props) => {
   const [selectedData, setSelectedData] = useState("");
   const [openStory, setOpenStory] = useState(false);
   const [dataPoints, setDataPoints] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setLoggedIn(true);
+      var uid = user.uid;
+      // ...
+    } else {
+      setLoggedIn(false);
+      // User is signed out
+      // ...
+    }
+  });
   const database = firebase.database().ref("/stories/");
   useEffect(() => {
     if (!openDialog) {
@@ -51,7 +66,7 @@ const MapPage = (props) => {
               );
             })
           );
-          Object.values(snapshot.val()).map((element) => {
+          Object.values(snapshot.val()).forEach((element) => {
             setDataPoints((prev) => [
               ...prev,
               { coordinate: [element.position[0], element.position[1]] },
@@ -88,6 +103,7 @@ const MapPage = (props) => {
         zoom={13}
         scrollWheelZoom={true}
         onClick={handleMapClick}
+        className={classes.map}
       >
         <HeatmapLayer
           points={dataPoints}
@@ -102,16 +118,19 @@ const MapPage = (props) => {
         <ClickMarker />
         {storyMarkers}
       </Map>
-      <Slide
-        direction="left"
-        in={clickPos ? true : false}
-        mountOnEnter
-        unmountOnExit
-      >
-        <Fab color="primary" className={classes.fab} onClick={handleClick}>
-          <AddIcon />
-        </Fab>
-      </Slide>
+      {loggedIn && (
+        <Slide
+          direction="left"
+          in={clickPos ? true : false}
+          mountOnEnter
+          unmountOnExit
+        >
+          <Fab color="primary" className={classes.fab} onClick={handleClick}>
+            <AddIcon />
+          </Fab>
+        </Slide>
+      )}
+
       <CreateInjusticeDialog
         open={openDialog}
         handleClose={() => {
