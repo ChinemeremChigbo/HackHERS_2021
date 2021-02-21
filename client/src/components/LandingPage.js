@@ -110,7 +110,7 @@ const LandingPage = () => {
 
             <div className="our-mission-blurb">
               <img src={ceiling} />
-              <div className="our-mission-subheading">Glassceiling</div>
+              <div className="our-mission-subheading">Glass Ceiling</div>
               <div>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
                 commodo ligula eget dolor.
