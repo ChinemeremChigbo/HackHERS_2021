@@ -19,12 +19,28 @@ export default function CompanyPage(props) {
 
   const showReviews = () => {
     return (
-      <div>
+      <div style={{fontSize: "50"}}>
         {reviews.map((review, i) => {
           return (
-            <div key={i}>
-              <p>{review[0]}</p>
-              <Rating
+
+            <div  key={i}>
+              <p style={{
+                    position: "relative",
+                    marginTop: "215px",
+                    marginLeft: "50px",
+                    fontSize: "20px",
+                    fontWeight: 300,
+                    color: "#393E41",
+                    textAlign: "left",
+                    fontSize:"15px"}}>{review[0]}</p>
+              <Rating 
+              style={{
+                position: "relative",
+                marginTop: 10,
+                marginLeft: -540,
+                color: "#393E41",
+                textAlign: "left",
+                fontSize:"30px"}}
                 name="customized-10"
                 value={review[1]}
                 max={10}

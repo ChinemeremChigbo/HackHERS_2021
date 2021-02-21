@@ -53,7 +53,7 @@ export default function GlassCeilingPage() {
   };
 
   const handleRating = (event) => {
-    if (loggedIn) {
+    if (loggedIn && event.target.value>0) {
       setRating(event.target.value);
     }
   };
@@ -66,9 +66,18 @@ export default function GlassCeilingPage() {
 
   const postView = () => {
     return (
-      <div className="glass-ceiling-card2">
+      <div style={{
+        boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+        width: "800px",
+        height: "7700px",
+        transition: "0.3s",
+        borderRadius: "5px",
+        backgroundColor: "#cccbe4",
+        paddingTop: "50px",
+        marginTop: "-1030px",
+      }}>
       <div>
-        <p>Post a review</p>
+        <p className = "glass-ceiling-header"> Post a review</p>
         <br />
         <input
           className = "glass-ceiling-input"
@@ -100,7 +109,7 @@ export default function GlassCeilingPage() {
 
         <br />
         <Autocomplete
-                        className = "glass-ceiling-company-selector"
+          className = "glass-ceiling-company-selector"
           inputValue={inputValue}
           onChange={(event, newValue) => {
             setCompany(newValue);
