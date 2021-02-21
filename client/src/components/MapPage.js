@@ -11,6 +11,7 @@ import firebase from "../config.js";
 import { Fab, makeStyles, Slide } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import CreateInjusticeDialog from "./mapComponents/CreateInjusticeDialog";
+import DisplayInjustice from "./mapComponents/DisplayInjustice";
 const useStyles = makeStyles((theme) => ({
   fab: {
     position: "fixed",
@@ -19,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
     marginBottom: 5,
   },
+  paper: {
+    position: "absolute",
+    left: "0%",
+    right: "0%",
+    zIndex: 999,
+  },
 }));
 
 const MapPage = (props) => {
@@ -26,9 +33,34 @@ const MapPage = (props) => {
   const classes = useStyles();
   const [clickPos, setClickPos] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
-  // useEffect(() => {
-  //   console.log(clickPos && clickPos.lat);
-  // }, [clickPos]);
+  const [storyMarkers, setStoryMarkers] = useState([]);
+  const [selectedData, setSelectedData] = useState("");
+  const [openStory, setOpenStory] = useState(false);
+  const database = firebase.database().ref("/stories/");
+  useEffect(() => {
+    if (!openDialog) {
+      database.on("value", (snapshot) => {
+        if (snapshot.val()) {
+          setStoryMarkers(
+            Object.values(snapshot.val()).map((element) => {
+              return (
+                <Marker
+                  position={element.position}
+                  key={element.position[0]}
+                  eventHandlers={{
+                    click: () => {
+                      setOpenStory(true);
+                      setSelectedData(element.body);
+                    },
+                  }}
+                ></Marker>
+              );
+            })
+          );
+        }
+      });
+    } //eslint-disable-next-line
+  }, [openDialog]);
   const handleClick = (e) => {
     e.stopPropagation();
     setOpenDialog(true);
@@ -36,11 +68,10 @@ const MapPage = (props) => {
   const ClickMarker = () => {
     useMapEvents({
       click: (e) => {
-        console.log("map click");
         if (clickPos) {
           setClickPos(null);
         } else {
-          setClickPos(e.latlng);
+          setClickPos({ lat: e.latlng.lat, lng: e.latlng.lng });
         }
       },
     });
@@ -58,9 +89,9 @@ const MapPage = (props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ClickMarker />
+        {storyMarkers}
       </MapContainer>
       <Slide
-        // remove strict mode to get rid of error
         direction="left"
         in={clickPos ? true : false}
         mountOnEnter
@@ -75,7 +106,15 @@ const MapPage = (props) => {
         handleClose={() => {
           setOpenDialog(false);
         }}
-        location={clickPos ? [clickPos.lat, clickPos.lng] : null}
+        position={clickPos && [clickPos.lat, clickPos.lng]}
+        removeClickMarker={() => setClickPos(null)}
+      />
+      <DisplayInjustice
+        open={openStory}
+        handleClose={() => {
+          setOpenStory(false);
+        }}
+        body={selectedData}
       />
     </React.Fragment>
   );

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import firebase from "../../config";
 import {
   Dialog,
   DialogActions,
@@ -17,36 +18,55 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CreateInjusticeDialog = (props) => {
-  const { open, handleClose, location } = props;
+  const { open, handleClose } = props;
   const classes = useStyles();
-  console.log(props.location);
+  const database = firebase.database().ref("/stories/");
   const [document, setDocument] = useState({
     userID: "",
-    location: location,
+    position: props.position,
     body: "",
     createdAt: new Date(),
   });
-
+  useEffect(() => {
+    setDocument((prev) => ({ ...prev, position: props.position }));
+  }, [props.position]);
+  const addUserStory = () => {
+    const postKey = database.push().key;
+    let updates = {};
+    updates[postKey] = document;
+    database.update(updates);
+  };
+  const handleExit = () => {
+    //not sure if should include
+    props.removeClickMarker();
+    setDocument((prev) => ({
+      ...prev,
+      body: "",
+    }));
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDocument((prev) => ({
       ...prev,
       [name]: value,
     }));
-    console.log(document);
   };
   const handleSubmit = () => {
-    console.log("submit");
+    addUserStory();
     handleClose();
   };
-
+  useEffect(() => {});
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog
+      fullWidth
+      maxWidth="md"
+      open={open}
+      onClose={handleClose}
+      onExit={handleExit}
+    >
       <DialogTitle>Tell Your Story</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          Your identity will be kept anonymous
-        </DialogContentText>
+        <DialogContentText>Your identity is kept anonymous</DialogContentText>
         <TextField
           className={classes.TextField}
           multiline
@@ -58,10 +78,10 @@ const CreateInjusticeDialog = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} variant="contained" color="secondary">
+        <Button onClick={handleClose} color="secondary">
           Cancel
         </Button>
-        <Button onClick={handleSubmit} variant="contained" color="primary">
+        <Button onClick={handleSubmit} color="primary">
           Submit
         </Button>
       </DialogActions>
