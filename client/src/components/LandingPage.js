@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       color: "#111B47",
     },
   },
-  formBtn : {
+  formBtn: {
     backgroundColor: "#111B47",
     color: "#FFFFFF",
     textTransform: "capitalize",
@@ -38,8 +38,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#D6DCF5",
       color: "#111B47",
     },
-
-  }
+  },
 }));
 
 const LandingPage = () => {
@@ -63,11 +62,13 @@ const LandingPage = () => {
             Giving a voice to the voiceless
           </div>
           <div className="landingpage-text">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim.
+            While society condones blatant discrimination, it is a lot more
+            complacent in dealing with microaggressions if not being outright
+            dismissive about it. From remarks like "you run like a girl" to
+            jokes like "get some rest and go do what girls do - gossip," we
+            often find ourselves having to put up with this unacceptable
+            behaviour. With amplify, we want to create a platform for people to
+            share their stories and feel validated.
           </div>
           <div className="landingpage-buttons">
             <Button
@@ -91,11 +92,9 @@ const LandingPage = () => {
         <div className="our-mission-content">
           <div className="our-mission-heading">Our Mission</div>
           <div className="our-mission-text">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim.
+            Amplify the stories of women and shine a light on the harassment
+            they face in our communities in order to promote equity and
+            diversity
           </div>
 
           <div className="our-mission-info">
@@ -103,8 +102,8 @@ const LandingPage = () => {
               <img src={map} />
               <div className="our-mission-subheading">Maps</div>
               <div>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor.
+                Share harassment stories anonymously and identify harassment
+                hotspots
               </div>
             </div>
 
@@ -112,8 +111,7 @@ const LandingPage = () => {
               <img src={ceiling} />
               <div className="our-mission-subheading">Glassceiling</div>
               <div>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor.
+                Service to evaluate companies based on diversity and inclusivity
               </div>
             </div>
           </div>
@@ -150,17 +148,22 @@ const LandingPage = () => {
       </div>
 
       <div className="footer">
-      <a href="#home">
-        <FontAwesomeIcon icon={faChevronUp} 
-        style={{marginTop:10,marginBottom:20}}/>
-      </a>  
+        <a href="#home">
+          <FontAwesomeIcon
+            icon={faChevronUp}
+            style={{ marginTop: 10, marginBottom: 20 }}
+          />
+        </a>
         <div className="footer-heading">Amplify</div>
-        <hr className="footer-linebreak"/>
+        <hr className="footer-linebreak" />
         <div className="footer-link-container">
-          <a href="#about" className="footer-link">About</a>
-          <a href="#contact" className="footer-link">Contact</a>
+          <a href="#about" className="footer-link">
+            About
+          </a>
+          <a href="#contact" className="footer-link">
+            Contact
+          </a>
         </div>
-        
       </div>
     </div>
   );

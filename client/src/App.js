@@ -6,8 +6,8 @@ import SignUpPage from "./components/SignUpPage";
 import LoginPage from "./components/LoginPage";
 import MapPage from "./components/MapPage";
 import GlassCeilingPage from "./components/GlassCeilingPage";
-import Cool from "./components/cool";
 import TopBar from "./components/TopBar";
+import Cool from "./components/cool";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/signup" component={SignUpPage} />
           <Route path="/map" component={MapPage} />
           <Route path="/glassceiling" component={GlassCeilingPage} />
-          {/*<Route path="/cool" component={Cool} />*/}
+          <Route path="/cool" component={Cool} />
         </Switch>
       </div>
     </Router>
