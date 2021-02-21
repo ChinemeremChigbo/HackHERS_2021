@@ -10,6 +10,8 @@ import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    zIndex: 999,
+    backgroundColor: "#111B47",
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
@@ -22,15 +24,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 999,
   },
   navlink: {
+    fontWeight: 700,
     color: "white",
     textDecoration: "none",
-    paddingLeft: 10,
+    paddingLeft: 20,
   },
 }));
 const TopBar = (props) => {
   const classes = useStyles();
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="primary" style={{ elevation: 1000 }}>
       <Toolbar className={classes.root}>
         <div className={classes.root}>
           <NavLink to="/" className={classes.navlink}>
