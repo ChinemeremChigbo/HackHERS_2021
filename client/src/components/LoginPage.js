@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../config.js";
+import "./LoginPage.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -29,16 +30,24 @@ export default function LoginPage() {
   };
 
   return (
+    <div className = "login-page-div">
     <div className="login-page">
-      <p>Login Page</p>
+    <div class="login-card">
+      <p className = "login-text">LOGIN</p>
       <br />
-      <input placeholder="Email" type="text" onChange={handleEmail} />
+      <input className="login-input" placeholder="Email" type="text" onChange={handleEmail} />
       <br />
-      <input placeholder="Password" type="password" onChange={handlePassword} />
+      <input className="login-input" placeholder="Password" type="password" onChange={handlePassword} />
       <br />
-      <button className="button-login" onClick={handleLogin}>
+      <div className="login-bottom-info">
+              Don't have an account?{" "}
+              <Link style={{textDecoration: 'none', color: '#ffffff'}} to="signup">Sign up</Link>
+            </div>      
+      <button className="login-button-submit" onClick={handleLogin}>
         Login
       </button>
+    </div>
+    </div>
     </div>
   );
 }

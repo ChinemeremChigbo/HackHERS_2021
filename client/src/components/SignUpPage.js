@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../config.js";
+import "./SignUpPage.css";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -29,20 +30,29 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="signup-page">
-      <p>Sign Up Page</p>
+    <div className="sign-up-page-div">
+      <div className="sign-up-page">
+      <div class="card">
+      <p className = "sign-up-text"> SIGN UP</p>
       <br />
-      <input placeholder="First Name" type="text" />
+      <input className="sign-up-input" placeholder="First Name" type="text" />
       <br />
-      <input placeholder="Last Name" type="text" />
+      <input className="sign-up-input" placeholder="Last Name" type="text" />
       <br />
-      <input placeholder="Email" type="text" onChange={handleEmail} />
+      <input className="sign-up-input" placeholder="Email" type="text" onChange={handleEmail} />
       <br />
-      <input placeholder="Password" type="password" onChange={handlePassword} />
+      <input className="sign-up-input" placeholder="Password" type="password" onChange={handlePassword} />
       <br />
-      <button className="button-submit" onClick={handleRegistration}>
+      <div className="sign-up-bottom-info">
+              Already have an account?{" "}
+              <Link style={{textDecoration: 'none', color: '#701000'}} to="/login">Log in</Link>
+            </div>
+      <button className="sign-up-button-submit" onClick={handleRegistration}>
         Submit
       </button>
+
+      </div>
+      </div>
     </div>
   );
 }
