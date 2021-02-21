@@ -65,12 +65,17 @@ const MapPage = (props) => {
     e.stopPropagation();
     setOpenDialog(true);
   };
-  const ClickMarker = () => {
+  const handleMapClick = (e) => {
+    console.log("click on map");
+    console.log(e);
     if (clickPos) {
       setClickPos(null);
     } else {
-      //setClickPos({ lat: e.latlng.lat, lng: e.latlng.lng });
+      setClickPos({ lat: e.latlng.lat, lng: e.latlng.lng });
     }
+    // ClickMarker(e);
+  };
+  const ClickMarker = () => {
     if (clickPos) {
       return <Marker position={clickPos}></Marker>;
     } else {
@@ -79,7 +84,12 @@ const MapPage = (props) => {
   };
   return (
     <React.Fragment>
-      <Map center={position} zoom={13} scrollWheelZoom={true}>
+      <Map
+        center={position}
+        zoom={13}
+        scrollWheelZoom={true}
+        onClick={handleMapClick}
+      >
         <HeatmapLayer
           points={dataPoints}
           longitudeExtractor={(m) => m.coordinate[1]}
