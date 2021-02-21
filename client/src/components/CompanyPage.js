@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Rating from "@material-ui/lab/Rating";
 import firebase from "../config.js";
 
 export default function CompanyPage(props) {
@@ -23,7 +24,12 @@ export default function CompanyPage(props) {
           return (
             <div key={i}>
               <p>{review[0]}</p>
-              <p>{review[1]}</p>
+              <Rating
+                name="customized-10"
+                value={review[1]}
+                max={10}
+                readOnly
+              />
             </div>
           );
         })}
